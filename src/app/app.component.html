@@ -1,0 +1,23 @@
+<h1 class="project-name">Добро пожаловать в проект {{title}}!</h1>
+
+
+<div class="mb-3">
+  <label class="form-label">Example</label>
+  <input type="password" class="form-control"
+         [(ngModel)]="password"
+         placeholder="*****">
+
+  <span class="text-info"> {{ password  }} </span>
+
+  <button (click)="reset()">Reset</button>
+</div>
+
+
+<!--
+
+
+<div class="mb-3">
+  <label for="formGroupExampleInput2" class="form-label">Another label</label>
+  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+</div>
+-->
