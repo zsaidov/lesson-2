@@ -1,15 +1,25 @@
 <h1 class="project-name">Добро пожаловать в проект {{title}}!</h1>
 
+<app-main></app-main>
+<app-registration></app-registration>
+<app-login></app-login>
+<app-about-us></app-about-us>
 
 <div class="mb-3">
   <label class="form-label">Example</label>
-  <input type="password" class="form-control"
+  <input [type]="showPassword ? 'text' : 'password'"
+         class="form-control"
+         [class.border-danger]="!password || checkInputValidate()"
+         [class.mb-3]="password"
          [(ngModel)]="password"
          placeholder="*****">
 
-  <span class="text-info"> {{ password  }} </span>
+  <span class="text-info mb-2"> {{ password  }} </span>
 
-  <button (click)="reset()">Reset</button>
+  <img [src]=" showPassword ? 'assets/open-ayes.img' : 'assets/close-ayes.img' " alt="test">
+
+  <button class="btn btn-secondary" (click)="reset()">Reset</button>
+  <button class="btn btn-success" (click)="showPasswordClick()">{{ showPassword ? 'Скрыть' : 'Показать' }}</button>
 </div>
 
 

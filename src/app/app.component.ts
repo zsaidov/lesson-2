@@ -7,7 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public title = 'lesson-2';
-  public password: any;
+  public password = '1234';
+  public showPassword = false;
 
   constructor() {
   }
@@ -18,6 +19,23 @@ export class AppComponent {
 
   reset(): void {
     this.password = '';
+  }
+
+  testFunc () {
+
+  }
+
+  showPasswordClick(): void {
+    this.showPassword = !this.showPassword;
+  }
+
+  checkInputValidate(): boolean {
+
+    if (this.showPassword) {
+      return true
+    }
+
+    return false;
   }
 
   checkLoginPassword() {
