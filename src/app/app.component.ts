@@ -7,38 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public title = 'lesson-2';
-  public password = '1234';
-  public showPassword = false;
+  public name = '';
+  public productCount = 0;
 
   constructor() {
   }
 
-  printHello() {
-
-  }
-
-  reset(): void {
-    this.password = '';
-  }
-
-  testFunc () {
-
-  }
-
-  showPasswordClick(): void {
-    this.showPassword = !this.showPassword;
-  }
-
-  checkInputValidate(): boolean {
-
-    if (this.showPassword) {
-      return true
-    }
-
-    return false;
-  }
-
-  checkLoginPassword() {
-
+  changeProductCount(count: number): void {
+    this.productCount += count;
   }
 }
