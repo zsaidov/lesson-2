@@ -8,6 +8,19 @@ import { MainComponent } from './main/main.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ExampleComponent } from './example/example.component';
+import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './not-found/not-found.component';
+
+// определение маршрутов
+const routes: Routes = [
+  { path: '', component: MainComponent },
+  { path: 'example', component: ExampleComponent },
+  { path: 'register', component: RegistrationComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'about-us', component: AboutUsComponent },
+  { path: '**', component: NotFoundComponent }
+];
+
 
 @NgModule({
   declarations: [
@@ -16,13 +29,16 @@ import { ExampleComponent } from './example/example.component';
     MainComponent,
     AboutUsComponent,
     RegistrationComponent,
-    ExampleComponent
+    ExampleComponent,
+    NotFoundComponent
   ],
-    imports: [
-        BrowserModule,
-        FormsModule
-    ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot(routes)
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
