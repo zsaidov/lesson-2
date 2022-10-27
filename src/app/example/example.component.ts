@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExampleComponent implements OnInit {
 
+  public condition = true;
   public title = 'lesson-2';
   public password = '1234';
   public showPassword = false;
@@ -17,19 +18,15 @@ export class ExampleComponent implements OnInit {
   printHello() {
 
   }
-
   reset(): void {
     this.password = '';
   }
-
-  testFunc () {
+  testFunc() {
 
   }
-
   showPasswordClick(): void {
     this.showPassword = !this.showPassword;
   }
-
   checkInputValidate(): boolean {
 
     if (this.showPassword) {
@@ -38,12 +35,14 @@ export class ExampleComponent implements OnInit {
 
     return false;
   }
-
   checkLoginPassword() {
 
   }
-
   ngOnInit(): void {
+  }
+
+  toggle() {
+    this.condition = !this.condition;
   }
 
 }

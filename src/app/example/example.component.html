@@ -20,12 +20,11 @@
 
 <img src="assets/images/health.png" alt="img">
 
-<!--
+<p *ngIf="condition">
+  Привет мир
+</p>
+<p *ngIf="!condition">
+  Пока мир
+</p>
 
-
-<div class="mb-3">
-  <label for="formGroupExampleInput2" class="form-label">Another label</label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
-</div>
--->
-
+<button class="btn btn-dark" (click)="toggle()">Toggle</button>
