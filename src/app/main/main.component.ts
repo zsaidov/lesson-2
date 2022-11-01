@@ -1,5 +1,16 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
+interface ProductModel {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  image?: string;
+  unit: 'шт' | 'кг' | 'литр';
+  made?: string;
+  category?: string
+}
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -9,36 +20,11 @@ export class MainComponent implements OnInit {
   @Input() name: string = '';
   @Output() onClicked = new EventEmitter<number>();
 
-  public cards = [
-    {
-      id: 1,
-      title: 'Test title',
-      img: 'assets/images/health.png',
-      description:'Some quick example text to build on the card title and make up the bulk of the card\'s\n content.'
-    },
-    {
-      id: 2,
-      title: 'Test title',
-      img: 'assets/images/health.png',
-      description:'Some quick example text to build on the card title and make up the bulk of the card\'s\n content.'
-    },
-    {
-      id: 3,
-      title: 'Test title',
-      img: 'assets/images/health.png',
-      description:'Some quick example text to build on the card title and make up the bulk of the card\'s\n content.'
-    },
-    {
-      id: 4,
-      title: 'Test title',
-      img: 'assets/images/health.png',
-      description:'Some quick example text to build on the card title and make up the bulk of the card\'s\n content.'
-    },
-    {
-      id: 5,
-      title: 'Test title',
-      description:'Some quick example text to build on the card title and make up the bulk of the card\'s\n content.'
-    }
+  public products: ProductModel[] = [
+    { id: 1, name: 'Яблоко', description: 'Себи шахристон', price: 4, unit: 'кг' },
+    { id: 2, name: 'RC', description: 'Истарвшан 1 литра', price: 10, unit: 'литр' },
+    { id: 3, name: 'Каду', description: 'Гончи', price: 3.5, unit: 'кг' },
+    { id: 4, name: 'Нон', description: 'Нони лермонтов', price: 20, unit: 'шт' },
   ]
 
   constructor() {
@@ -49,5 +35,9 @@ export class MainComponent implements OnInit {
 
   buttonClick(count: number): void {
     this.onClicked.emit(count)
+  }
+
+  getProducts(): void {
+    // code for loading products
   }
 }
